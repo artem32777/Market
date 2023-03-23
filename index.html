@@ -2,16 +2,17 @@
 <html lang="ru">
 
 <head>
-	<title>Главная</title>
 	<meta charset="UTF-8">
+	<title>Главная</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230322001449">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230323145126">
 	<link rel="shortcut icon" href="img/favicon.svg">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="theme-color" content="#7757A0">
 	<meta name="description" content="Описание страницы сайта.">
+	<meta name="keywords" content="Ключевые слова (10 шт)">
 </head>
 
 <body>
@@ -396,13 +397,13 @@
 					<form action="#" class="header-actions__search-form">
 						<button hidden type="button" class="header-actions__search-mobile-btn">
 							<svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M13.336 13.335L18 18m-2.665-9.494a6.828 6.828 0 11-13.656 0 6.828 6.828 0 0113.656 0z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+								<path d="M13.336 13.335L18 18m-2.665-9.494a6.828 6.828 0 11-13.656 0 6.828 6.828 0 0113.656 0z" stroke="black" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
 							</svg>
 						</button>
 						<input autocomplete="off" type="text" name="form[]" data-error="" placeholder="Поиск по сайту" class="header-actions__search-input">
 						<button type="submit" class="header-actions__search-btn" title="Поиск">
 							<svg viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M13.336 13.335L18 18m-2.665-9.494a6.828 6.828 0 11-13.656 0 6.828 6.828 0 0113.656 0z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+								<path d="M13.336 13.335L18 18m-2.665-9.494a6.828 6.828 0 11-13.656 0 6.828 6.828 0 0113.656 0z" stroke="" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
 							</svg>
 						</button>
 					</form>
@@ -428,11 +429,23 @@
 					</li>
 					<li class="header-actions__menu-item">
 						<a href="#" class="header-actions__menu-link mini-cart">
-							<div class="header-actions__qty header-actions__qty_basket">3</div>
+							<div class="header-actions__qty mini-cart__qty">3</div>
 							<svg height="23" width="23" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 								<path d="M2.25 3C2.25 2.58579 2.58579 2.25 3 2.25H4.38197C5.04482 2.25 5.65078 2.6245 5.94721 3.21738L5.27639 3.55279L5.94721 3.21738L6.46353 4.25H20.1384C21.0982 4.25 21.6999 5.28685 21.2237 6.12017L17.9391 11.8682C17.6275 12.4135 17.0477 12.75 16.4197 12.75H8.91567L7.59225 14.8675C7.48818 15.034 7.60789 15.25 7.80425 15.25H19C19.4142 15.25 19.75 15.5858 19.75 16C19.75 16.4142 19.4142 16.75 19 16.75H7.80425C6.42974 16.75 5.59176 15.2381 6.32025 14.0725L7.67159 11.9103L5.30898 5.295L4.60557 3.8882C4.56322 3.8035 4.47666 3.75 4.38197 3.75H3C2.58579 3.75 2.25 3.41421 2.25 3ZM7.06427 5.75L9.02855 11.25H16.4197C16.5094 11.25 16.5922 11.2019 16.6368 11.124L19.7076 5.75H7.06427ZM10 19.5C10 20.3284 9.32843 21 8.5 21C7.67157 21 7 20.3284 7 19.5C7 18.6716 7.67157 18 8.5 18C9.32843 18 10 18.6716 10 19.5ZM17.5 21C18.3284 21 19 20.3284 19 19.5C19 18.6716 18.3284 18 17.5 18C16.6716 18 16 18.6716 16 19.5C16 20.3284 16.6716 21 17.5 21Z"></path>
 							</svg>
 							<span>Корзина</span>
+							<!-- <ul class="mini-cart__products-list">
+		<li class="mini-cart__product">
+			<a href="#" class="mini-cart__link">
+				<picture><source srcset="img" type="image/webp"><img src="img" width="150" height="150" alt="Изображение товара"></picture>
+				<div class="mini-cart__info">
+					<h4 class="mini-cart__name"></h4>
+					<div class="mini-cart__price"></div>
+				</div>
+				<div class="mini-cart__remove"></div>
+			</a>
+		</li>
+	</ul> -->
 						</a>
 					</li>
 					<li class="header-actions__menu-item">
@@ -448,19 +461,20 @@
 		</header>
 
 		<main class="page main-page">
+			<h1 hidden>Лучшие предложения магазана</h1>
 			<section class="main-page__sliders">
-				<h1 hidden>Лучшие предложения</h1>
+				<h2 hidden>Лучшие предложения магазана</h2>
 				<div class="main-page__main-slider main-slider swiper">
-					<div class="main-slider__arrows">
-						<button type="button" class="main-slider__arrow main-slider__arrow_prev" title="Предыдущий слайд"></button>
-						<button type="button" class="main-slider__arrow main-slider__arrow_next" title="Следующий слайд"></button>
+					<div class="main-slider__arrows arrows">
+						<button type="button" class="main-slider__arrow main-slider__arrow_prev arrows__prev btn-glow" title="Предыдущий слайд"></button>
+						<button type="button" class="main-slider__arrow main-slider__arrow_next arrows__next btn-glow" title="Следующий слайд"></button>
 					</div>
 					<div class="main-slider__wrapper swiper-wrapper">
 						<div class="main-slider__slide swiper-slide">
 							<a href="#" class="main-slider__slide-link">
 								<img src="img/mainpage/main-slider/1.svg" class="main-slider__slide-image" alt="Изображение слайда">
 								<div class="main-slider__slide-content">
-									<h2 class="main-slider__slide-title">Здесь могла бы быть Ваша реклама!</h2>
+									<h3 class="main-slider__slide-title">Здесь могла бы быть Ваша реклама!</h3>
 									<p class="main-slider__slide-text">Создание сайтов "под ключ". Быстро, недорого, качественно.</p>
 								</div>
 							</a>
@@ -469,120 +483,103 @@
 							<a href="#" class="main-slider__slide-link">
 								<img src="img/mainpage/main-slider/1.svg" class="main-slider__slide-image" alt="Изображение слайда">
 								<div class="main-slider__slide-content">
-									<h2 class="main-slider__slide-title">Здесь могла бы быть Ваша реклама!</h2>
+									<h3 class="main-slider__slide-title">Здесь могла бы быть Ваша реклама!</h3>
 									<p class="main-slider__slide-text">Создание сайтов "под ключ". Быстро, недорого, качественно.</p>
 								</div>
 							</a>
 						</div>
 					</div>
 				</div>
-				<div class="main-page__product-slider-body">
-					<h2 class="main-page__product-slider-title">Товары дня</h2>
-					<div class="main-page__product-slider product-slider swiper">
-						<div class="product-slider__arrows">
-							<button type="button" class="product-slider__arrow product-slider__arrow_prev" title="Предыдущий слайд"></button>
-							<button type="button" class="product-slider__arrow product-slider__arrow_next" title="Следующий слайд"></button>
+				<div class="main-page__product-slider product-slider">
+					<div class="product-slider__header">
+						<h3 class="product-slider__title">Товары дня</h3>
+						<div class="product-slider__arrows arrows">
+							<button type="button" class="product-slider__arrow product-slider__arrow_prev arrows__prev" title="Предыдущий слайд"></button>
+							<button type="button" class="product-slider__arrow product-slider__arrow_next arrows__next" title="Следующий слайд"></button>
 						</div>
+					</div>
+					<div class="product-slider__slider swiper">
 						<div class="product-slider__wrapper swiper-wrapper">
-							<div class="product-slider__slide swiper-slide">
-								<a href="#" class="product-slider__slide-link product">
-									<div class="product-slider__slide-info">
-										<h2 class="product-slider__name">Молоток</h2>
-										<div class="product-slider__image product-image">
-											<div class="preview-slider swiper">
-												<div class="preview-slider__pagination"></div>
-												<div class="preview-slider__wrapper swiper-wrapper">
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/1.webp" type="image/webp"><img src="img/mainpage/product-slider/1.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/2.webp" type="image/webp"><img src="img/mainpage/product-slider/2.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-												</div>
+							<a href="#" class="product-slider__slide swiper-slide product">
+								<div class="product-slider__product-image product-image">
+									<div class="preview-slider swiper">
+										<div class="preview-slider__pagination"></div>
+										<div class="preview-slider__wrapper swiper-wrapper">
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/1.webp" type="image/webp"><img src="img/mainpage/product-slider/1.jpg" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/2.webp" type="image/webp"><img src="img/mainpage/product-slider/2.jpg" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
 											</div>
 										</div>
 									</div>
-									<div class="product-slider__slide-content">
-										<div class="product-slider__price">1000р</div>
-										<div class="product-slider__text">Описание товара</div>
-										<button type="button" class="product-slider__add-cart btn-glow add-cart">
+								</div>
+								<div class="product-slider__product-content">
+									<h4 class="product-slider__name">Ноутбук MSI Modern 14 C5M-012RU, 14", IPS, AMD Ryzen 5 5625U 2.3ГГц, 16ГБ, 512ГБ SSD, AMD Radeon</h4>
+
+									<div class="product-slider__pricies">
+										<div class="product-slider__old-price">2 000</div>
+										<div class="product-slider__price">1 000 ₽</div>
+									</div>
+									<div class="product-slider__product-actions">
+										<button class="product-slider__favorite btn-like btn-glow" type="button"></button>
+										<button class="product-slider__compare btn-compare btn-glow" type="button"></button>
+										<button class="product-slider__add-cart btn-glow add-cart" type="button">
 											<span class="btn-glow__text">Купить</span>
 										</button>
 									</div>
-								</a>
-							</div>
-							<div class="product-slider__slide swiper-slide">
-								<a href="#" class="product-slider__slide-link product">
-									<div class="product-slider__slide-info">
-										<h2 class="product-slider__name">Молоток</h2>
-										<div class="product-slider__image product-image">
-											<div class="preview-slider swiper">
-												<div class="preview-slider__pagination"></div>
-												<div class="preview-slider__wrapper swiper-wrapper">
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/1.webp" type="image/webp"><img src="img/mainpage/product-slider/1.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/2.webp" type="image/webp"><img src="img/mainpage/product-slider/2.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-												</div>
+								</div>
+							</a>
+							<a href="#" class="product-slider__slide swiper-slide product">
+								<div class="product-slider__product-image product-image">
+									<div class="preview-slider swiper">
+										<div class="preview-slider__pagination"></div>
+										<div class="preview-slider__wrapper swiper-wrapper">
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/5.webp" type="image/webp"><img src="img/mainpage/product-slider/5.jpg" class="swiper-lazy" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/6.webp" type="image/webp"><img src="img/mainpage/product-slider/6.jpg" class="swiper-lazy" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" class="swiper-lazy" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
+											</div>
+											<div class="preview-slider__slide swiper-slide">
+												<picture><source srcset="img/mainpage/product-slider/8.webp" type="image/webp"><img src="img/mainpage/product-slider/8.jpg" class="swiper-lazy" loading="lazy" alt="Изображение товара"></picture>
+												<div class="swiper-lazy-preloader"></div>
 											</div>
 										</div>
 									</div>
-									<div class="product-slider__slide-content">
-										<div class="product-slider__price">1000р</div>
-										<div class="product-slider__text">Описание товара</div>
-										<button type="button" class="product-slider__add-cart btn-glow add-cart">
+								</div>
+								<div class="product-slider__product-content">
+									<h4 class="product-slider__name">Ноутбук MSI</h4>
+									<div class="product-slider__pricies">
+										<div class="product-slider__old-price">10 000</div>
+										<div class="product-slider__price">6 000 ₽</div>
+									</div>
+									<div class="product-slider__product-actions">
+										<button class="product-slider__favorite btn-like btn-glow" type="button"></button>
+										<button class="product-slider__compare btn-compare btn-glow" type="button"></button>
+										<button class="product-slider__add-cart btn-glow add-cart" type="button">
 											<span class="btn-glow__text">Купить</span>
 										</button>
 									</div>
-								</a>
-							</div>
-							<div class="product-slider__slide swiper-slide">
-								<a href="#" class="product-slider__slide-link product">
-									<div class="product-slider__slide-info">
-										<h2 class="product-slider__name">Молоток</h2>
-										<div class="product-slider__image product-image">
-											<div class="preview-slider swiper">
-												<div class="preview-slider__pagination"></div>
-												<div class="preview-slider__wrapper swiper-wrapper">
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/1.webp" type="image/webp"><img src="img/mainpage/product-slider/1.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/2.webp" type="image/webp"><img src="img/mainpage/product-slider/2.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-													<div class="preview-slider__slide swiper-slide">
-														<picture><source srcset="img/mainpage/product-slider/3.webp" type="image/webp"><img src="img/mainpage/product-slider/3.jpg" alt="Изображение товара"></picture>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="product-slider__slide-content">
-										<div class="product-slider__price">1000р</div>
-										<div class="product-slider__text">Описание товара</div>
-										<button type="button" class="product-slider__add-cart btn-glow add-cart">
-											<span class="btn-glow__text">Купить</span>
-										</button>
-									</div>
-								</a>
-							</div>
+								</div>
+							</a>
+
 						</div>
 					</div>
 				</div>
@@ -606,7 +603,7 @@
 </div>
  -->
 
-	<script src="js/app.min.js?_v=20230322001449"></script>
+	<script src="js/app.min.js?_v=20230323145126"></script>
 </body>
 
 </html>

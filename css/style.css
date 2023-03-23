@@ -1100,7 +1100,7 @@ section {
 .product-slider__arrows {
   gap: 0.625rem;
   position: relative;
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .product-slider__arrow {

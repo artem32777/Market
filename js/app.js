@@ -2992,7 +2992,7 @@
             classes
         };
         const extendedDefaults = {};
-        class core_Swiper {
+        class Swiper {
             constructor(...args) {
                 let el;
                 let params;
@@ -3007,7 +3007,7 @@
                         const newParams = utils_extend({}, params, {
                             el: containerEl
                         });
-                        swipers.push(new core_Swiper(newParams));
+                        swipers.push(new Swiper(newParams));
                     }));
                     return swipers;
                 }
@@ -3348,26 +3348,26 @@
                 return defaults;
             }
             static installModule(mod) {
-                if (!core_Swiper.prototype.__modules__) core_Swiper.prototype.__modules__ = [];
-                const modules = core_Swiper.prototype.__modules__;
+                if (!Swiper.prototype.__modules__) Swiper.prototype.__modules__ = [];
+                const modules = Swiper.prototype.__modules__;
                 if ("function" === typeof mod && modules.indexOf(mod) < 0) modules.push(mod);
             }
             static use(module) {
                 if (Array.isArray(module)) {
-                    module.forEach((m => core_Swiper.installModule(m)));
-                    return core_Swiper;
+                    module.forEach((m => Swiper.installModule(m)));
+                    return Swiper;
                 }
-                core_Swiper.installModule(module);
-                return core_Swiper;
+                Swiper.installModule(module);
+                return Swiper;
             }
         }
         Object.keys(prototypes).forEach((prototypeGroup => {
             Object.keys(prototypes[prototypeGroup]).forEach((protoMethod => {
-                core_Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+                Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
             }));
         }));
-        core_Swiper.use([ Resize, Observer ]);
-        const core = core_Swiper;
+        Swiper.use([ Resize, Observer ]);
+        const core = Swiper;
         function create_element_if_not_defined_createElementIfNotDefined(swiper, originalParams, params, checkProps) {
             if (swiper.params.createElements) Object.keys(checkProps).forEach((key => {
                 if (!params[key] && true === params.auto) {
@@ -4453,92 +4453,87 @@
                 on: {}
             });
         }
-        const productsSwipersLazy = {
-            modules: [ Navigation, Autoplay ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 6,
-            spaceBetween: 20,
-            speed: 800,
-            grabCursor: true,
-            loop: false,
-            watchOverflow: true,
-            autoplay: {
-                delay: 3e3,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            },
-            navigation: {
-                prevEl: ".products-slider__arrow_prev",
-                nextEl: ".products-slider__arrow_next"
-            },
-            on: {
-                afterInit: swiper => {
-                    new lazyload_min({
-                        container: swiper.el,
-                        cancel_on_exit: false
+        function initLazySliders() {
+            if (document.querySelector(".category-slider__slider")) new lazyload_min({
+                elements_selector: ".category-slider__slider",
+                unobserve_entered: true,
+                threshold: 0,
+                callback_enter: function(swiperElement) {
+                    new core("#" + swiperElement.id, {
+                        modules: [ Navigation, Autoplay ],
+                        observer: true,
+                        observeParents: true,
+                        slidesPerView: 8,
+                        spaceBetween: 20,
+                        speed: 1e3,
+                        grabCursor: true,
+                        loop: true,
+                        watchOverflow: true,
+                        effect: "fade",
+                        autoplay: {
+                            delay: 1e3,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        },
+                        navigation: {
+                            prevEl: ".category-slider__arrow_prev",
+                            nextEl: ".category-slider__arrow_next"
+                        },
+                        on: {
+                            afterInit: swiper => {
+                                new lazyload_min({
+                                    container: swiper.el,
+                                    cancel_on_exit: false
+                                });
+                            }
+                        }
                     });
                 }
-            }
-        };
-        const categoriesSwipersLazy = {
-            modules: [ Navigation, Autoplay ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 8,
-            spaceBetween: 20,
-            speed: 1e3,
-            grabCursor: true,
-            loop: true,
-            watchOverflow: true,
-            effect: "fade",
-            autoplay: {
-                delay: 1e3,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            },
-            navigation: {
-                prevEl: ".category-slider__arrow_prev",
-                nextEl: ".category-slider__arrow_next"
-            },
-            on: {
-                afterInit: swiper => {
-                    new lazyload_min({
-                        container: swiper.el,
-                        cancel_on_exit: false
-                    });
-                }
-            }
-        };
-        new lazyload_min({
-            elements_selector: ".swiper--lazy",
-            unobserve_entered: true,
-            callback_enter: function(swiperElement) {
-                new core("#" + swiperElement.id, productsSwipersLazy);
-            }
-        });
-        new lazyload_min({
-            elements_selector: ".swiper--lazy-2",
-            unobserve_entered: true,
-            callback_enter: function(swiperElement) {
-                new core("#" + swiperElement.id, categoriesSwipersLazy);
-            }
-        });
-        document.querySelector(".header-actions__catalog-btn").addEventListener("click", (() => {
-            new lazyload_min({
-                elements_selector: ".catalog__category-icon"
             });
-        }));
+            if (document.querySelector(".products-slider")) new lazyload_min({
+                elements_selector: ".products-slider",
+                threshold: 0,
+                unobserve_entered: true,
+                callback_enter: function(swiperElement) {
+                    new core("#" + swiperElement.id, {
+                        modules: [ Navigation, Autoplay ],
+                        observer: true,
+                        observeParents: true,
+                        slidesPerView: 6,
+                        spaceBetween: 20,
+                        speed: 800,
+                        grabCursor: true,
+                        loop: false,
+                        watchOverflow: true,
+                        autoplay: {
+                            delay: 3e3,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true
+                        },
+                        navigation: {
+                            prevEl: ".products-slider__arrow_prev",
+                            nextEl: ".products-slider__arrow_next"
+                        },
+                        on: {
+                            afterInit: swiper => {
+                                new lazyload_min({
+                                    container: swiper.el,
+                                    cancel_on_exit: false
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        }
         function previewsSliders() {
-            const previewSliders = document.querySelectorAll(".preview-slider");
-            previewSliders.forEach((previewSlider => {
-                previewSlider.addEventListener("mouseover", (e => {
-                    if (e.target.classList.contains("swiper-pagination-bullet")) e.target.click();
-                }));
+            if (document.querySelector(".preview-slider")) document.addEventListener("mouseover", (e => {
+                if (e.target.closest(".preview-slider") && e.target.classList.contains("swiper-pagination-bullet")) e.target.click();
             }));
         }
         window.addEventListener("load", (function(e) {
             initSliders();
+            initLazySliders();
             previewsSliders();
         }));
         let addWindowScrollEvent = false;
@@ -4552,7 +4547,12 @@
         }), 0);
         function catalogOpen() {
             if (document.querySelector(".catalog") && document.querySelector(".header-actions__catalog-btn")) document.addEventListener("click", (e => {
-                if (!e.target.closest(".catalog")) if (e.target.closest(".header-actions__catalog-btn")) document.documentElement.classList.toggle("catalog-open"); else document.documentElement.classList.remove("catalog-open");
+                if (!e.target.closest(".catalog")) if (e.target.closest(".header-actions__catalog-btn")) {
+                    document.documentElement.classList.toggle("catalog-open");
+                    new lazyload_min({
+                        elements_selector: ".catalog__category-icon"
+                    });
+                } else document.documentElement.classList.remove("catalog-open");
             }));
         }
         catalogOpen();

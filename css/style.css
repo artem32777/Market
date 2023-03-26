@@ -457,6 +457,7 @@ section {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.625rem;
+  cursor: pointer;
   padding: 0 0.3125rem;
   border-radius: 0.3125rem;
   -webkit-transition: background-color 0.3s ease 0s;
@@ -963,6 +964,7 @@ section {
   -webkit-transform: scale(0.5) translate(50%, 0%);
       -ms-transform: scale(0.5) translate(50%, 0%);
           transform: scale(0.5) translate(50%, 0%);
+  will-change: transform, opacity;
 }
 
 .loaded .mini-cart {
@@ -1239,9 +1241,8 @@ section {
   -webkit-column-gap: 1.25rem;
      -moz-column-gap: 1.25rem;
           column-gap: 1.25rem;
-  row-gap: 250rem;
+  row-gap: 2.5rem;
   margin-bottom: 3.125rem;
-  margin-bottom: 125rem;
 }
 
 .main-page__products-sliders {

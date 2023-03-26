@@ -4515,9 +4515,20 @@
             unobserve_entered: true,
             callback_enter: function(swiperElement) {
                 new core("#" + swiperElement.id, productsSwipersLazy);
+            }
+        });
+        new lazyload_min({
+            elements_selector: ".swiper--lazy-2",
+            unobserve_entered: true,
+            callback_enter: function(swiperElement) {
                 new core("#" + swiperElement.id, categoriesSwipersLazy);
             }
         });
+        document.querySelector(".header-actions__catalog-btn").addEventListener("click", (() => {
+            new lazyload_min({
+                elements_selector: ".catalog__category-icon"
+            });
+        }));
         function previewsSliders() {
             const previewSliders = document.querySelectorAll(".preview-slider");
             previewSliders.forEach((previewSlider => {
